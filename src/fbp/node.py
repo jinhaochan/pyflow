@@ -2,7 +2,7 @@
 
 import traceback, pdb
 
-from port import Inport, Outport
+from fbp.port import Inport, Outport
 
 OUTPORT_DEFAULT_NAME = "out"
 
@@ -20,7 +20,7 @@ class Node(object):
         self._spec = spec
         self._port_spec = spec.get("port")
         # Tricky and Non-Secure eval
-        exec(spec.get("func"))
+        exec(spec['func'], globals())
         self._func = func
 
         self._inputports = dict()

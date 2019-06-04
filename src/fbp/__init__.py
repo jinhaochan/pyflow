@@ -2,9 +2,9 @@
 import json
 import time
 
-from node import Node
-from flow import Flow
-from repository import repository
+from fbp.node import Node
+from fbp.flow import Flow
+from fbp.repository import repository
 
 
 __version_info__ = (0, 0, 1)
@@ -55,6 +55,7 @@ def _run_flow(flow_spec):
             end_node = anode
         for port_def in node_def.get("ports"):
             anode.set_inport_value(port_def.get("name"), port_def.get("value"))
+
 
     for link_def in flow_spec_obj.get("links"):
         source = link_def.get("source").split(":")
